@@ -5,7 +5,8 @@ Gem::Specification.new do |s|
   s.name        = 'rails-sass-images'
   s.version     = RailsSassImages::VERSION.dup
   s.date        = Time.now.strftime('%Y-%m-%d')
-  s.summary     = 'Add to Sass function to inline images and get images size'
+  s.summary     = 'Sass functions and mixins to inline images ' +
+                  'and get images size'
 
   s.files            = `git ls-files`.split("\n")
   s.test_files       = `git ls-files -- {spec}/*`.split("\n")
