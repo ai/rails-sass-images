@@ -1,0 +1,1 @@
+# Rails Sass Images
