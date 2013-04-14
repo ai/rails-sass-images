@@ -39,6 +39,7 @@ Instead of Compass, Rails Sass Images has:
 * Retina support.
 * Full Assets Pipeline support.
 * Useful shortcuts.
+* More file types support.
 * Smaller and cleaner code.
 
 If you still need Compass for CSS 3 prefixes,
