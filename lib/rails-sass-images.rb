@@ -20,6 +20,10 @@ require 'pathname'
 dir = Pathname(__FILE__).dirname.join('rails-sass-images')
 
 module RailsSassImages
+  # Enable `lib/assets/`
+  class Engine < ::Rails::Engine
+  end
+
   # Return asset by file `path` from Sass parser
   def self.asset(path)
     path  = path.value

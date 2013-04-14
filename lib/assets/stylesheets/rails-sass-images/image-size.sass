@@ -1,0 +1,10 @@
+// Add `width` and `height` properties with image size.
+// For retina images you can set scale `factor` and width and height
+// will be divited by this factor.
+//
+//   .button
+//     +image-size("button/nice.png")
+//     background: image-path("button/nice.png")
+@mixin image-size($path, $factor: 1)
+  width: image-width($path) / $factor
+  height: image-height($path) / $factor

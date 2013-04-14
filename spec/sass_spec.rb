@@ -20,4 +20,10 @@ describe CssController, :type => :controller do
     response.should be_success
     response.body.should == ".icon{width:2px;height:3px}\n"
   end
+
+  it "should get image size by mixin" do
+    get :test, :file => 'image-size'
+    response.should be_success
+    response.body.should == ".icon{width:2px;height:3px}\n"
+  end
 end
