@@ -7,3 +7,6 @@ require DIR.join('../lib/rails-sass-images').to_s
 
 require 'pp'
 require 'rspec/rails'
+
+INLINE = "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAGCAAAAADB" +
+         "UmCpAAAAC0lEQVQI12NgwAcAAB4AAW6FRzIAAAAASUVORK5CYII=')"

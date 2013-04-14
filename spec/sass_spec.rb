@@ -1,12 +1,15 @@
 require File.expand_path('../spec_helper', __FILE__)
 
 describe CssController, :type => :controller do
+  after :all do
+    Rails.root.join('tmp').rmtree
+    Rails.root.join('log').rmtree
+  end
+
   it "should inline assets" do
     get :test, :file => 'inline'
     response.should be_success
-    response.body.should == ".icon{background:url('data:image/png;base64," +
-      "iVBORw0KGgoAAAANSUhEUgAAAAIAAAADCAAAAACcgYFdAAAAC0lEQVQI12NggAIAAAkA" +
-      "AWMqFg0AAAAASUVORK5CYII=')}\n"
+    response.body.should == ".icon{background:#{INLINE}}\n"
   end
 
   it "should raise error on unknown file" do
@@ -18,12 +21,28 @@ describe CssController, :type => :controller do
   it "should get image size" do
     get :test, :file => 'size'
     response.should be_success
-    response.body.should == ".icon{width:2px;height:3px}\n"
+    response.body.should == ".icon{width:4px;height:6px}\n"
   end
 
   it "should get image size by mixin" do
     get :test, :file => 'image-size'
     response.should be_success
-    response.body.should == ".icon{width:2px;height:3px}\n"
+    response.body.should == ".icon{width:4px;height:6px}\n"
+  end
+
+  it "should has retina-image mixin" do
+    get :test, :file => 'retina-image'
+    response.should be_success
+    response.body.should == ".icon{width:2px;height:3px;" +
+      "background:url(/assets/monolith.png) no-repeat;" +
+      "background-size:2px 3px}\n"
+  end
+
+  it "should has retina-inline mixin" do
+    get :test, :file => 'retina-inline'
+    response.should be_success
+    response.body.should == ".icon{width:2px;height:3px;" +
+      "background:#{INLINE} no-repeat;" +
+      "background-size:2px 3px}\n"
   end
 end
