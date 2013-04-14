@@ -30,6 +30,8 @@ and fonts support:
   src: inline("my.woff") format('woff')
 ```
 
+Sponsored by [Evil Martians](http://evilmartians.com/).
+
 ## Features
 
 Instead of Compass, Rails Sass Images has:
