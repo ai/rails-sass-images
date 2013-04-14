@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     rails-sass-images (0.1)
+      dimensions (> 0)
       rails (>= 3.1)
       sass-rails (> 0)
 
@@ -38,6 +39,7 @@ GEM
     arel (3.0.2)
     builder (3.0.4)
     diff-lcs (1.2.3)
+    dimensions (1.2.0)
     erubis (2.7.0)
     hike (1.2.2)
     i18n (0.6.1)

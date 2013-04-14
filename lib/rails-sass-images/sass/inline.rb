@@ -28,9 +28,7 @@ module RailsSassImages::Sass
   #     font-family: "MyFont"
   #     src: inline("my.woff") format('woff')
   def inline(path)
-    path  = path.value
-    asset = Rails.application.assets[path]
-    raise "Can't find asset #{path}" unless asset
+    asset = RailsSassImages.asset(path)
 
     mime = MIME::Types.type_for(asset.pathname.to_s).first.content_type
     file = asset.pathname.read

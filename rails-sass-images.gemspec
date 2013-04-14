@@ -17,5 +17,6 @@ Gem::Specification.new do |s|
   s.homepage = 'https://github.com/ai/rails-sass-images'
 
   s.add_dependency 'sass-rails', ['> 0']
+  s.add_dependency 'dimensions', ['> 0']
   s.add_dependency 'rails',      ['>= 3.1']
 end

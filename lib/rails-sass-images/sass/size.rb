@@ -16,18 +16,18 @@ You should have received a copy of the GNU Lesser General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 =end
 
-require 'pathname'
-dir = Pathname(__FILE__).dirname.join('rails-sass-images')
+require 'dimensions'
 
-module RailsSassImages
-  # Return asset by file `path` from Sass parser
-  def self.asset(path)
-    path  = path.value
-    asset = Rails.application.assets[path]
-    raise "Can't find asset #{path}" unless asset
-    asset
+module RailsSassImages::Sass
+  # Get image width
+  def image_width(path)
+    asset = RailsSassImages.asset(path)
+    Sass::Script::Number.new(Dimensions.width(asset.pathname), ["px"])
+  end
+
+  # Get image height
+  def image_height(path)
+    asset = RailsSassImages.asset(path)
+    Sass::Script::Number.new(Dimensions.height(asset.pathname), ["px"])
   end
 end
-
-require dir.join('version')
-require dir.join('sass')
