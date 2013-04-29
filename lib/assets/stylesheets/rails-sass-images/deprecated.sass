@@ -1,0 +1,9 @@
+// Deprecated mixins
+
+@mixin retina-image($path)
+  @warn "Mixin retina-inline is deprecated. Use hidpi-inline instead."
+  +hidpi-image($path)
+
+@mixin retina-inline($path)
+  @warn "Mixin retina-inline is deprecated. Use hidpi-inline instead."
+  +hidpi-inline($path)

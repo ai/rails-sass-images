@@ -1,9 +1,9 @@
 // Set image sizes and background and inline file as base64 data:uri.
-// It will use retina image, that has twice size to be clean on Retina screens.
+// It will use `background-size` to set HiDPI (Retina) image.
 //
 //   .button
-//      +retina-inline("nice/button.png")
-@mixin retina-inline($path)
+//      +hidpi-inline("nice/button.png")
+@mixin hidpi-inline($path)
   +image-size($path, 2)
   background: inline($path) no-repeat
   background-size: (image-width($path) / 2) (image-height($path) / 2)

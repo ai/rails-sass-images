@@ -14,7 +14,7 @@ describe CssController, :type => :controller do
 
   it "should raise error on unknown file" do
     proc {
-      get :test, :file => 'wrong_inline'
+      get :test, :file => 'wrong-inline'
     }.should raise_error(/Can't find asset no\.png/)
   end
 
@@ -30,16 +30,16 @@ describe CssController, :type => :controller do
     response.body.should == ".icon{width:4px;height:6px}\n"
   end
 
-  it "should has retina-image mixin" do
-    get :test, :file => 'retina-image'
+  it "should has hidpi-image mixin" do
+    get :test, :file => 'hidpi-image'
     response.should be_success
     response.body.should == ".icon{width:2px;height:3px;" +
       "background:url(/assets/monolith.png) no-repeat;" +
       "background-size:2px 3px}\n"
   end
 
-  it "should has retina-inline mixin" do
-    get :test, :file => 'retina-inline'
+  it "should has hidpi-inline mixin" do
+    get :test, :file => 'hidpi-inline'
     response.should be_success
     response.body.should == ".icon{width:2px;height:3px;" +
       "background:#{INLINE} no-repeat;" +

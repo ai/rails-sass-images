@@ -16,10 +16,10 @@ with HiDPI (Retina) support:
 
 ```sass
 .icon
-  +retina-inline("icon.png")
+  +hidpi-inline("icon.png")
 
 .background
-  +retina-image("big-image.jpg")
+  +hidpi-image("big-image.jpg")
 ```
 
 and fonts support:
@@ -36,7 +36,7 @@ Sponsored by [Evil Martians](http://evilmartians.com/).
 
 Instead of Compass, Rails Sass Images has:
 
-* Retina support.
+* HiDPI (Retina) support.
 * Full Assets Pipeline support.
 * Useful shortcuts.
 * More file types support.

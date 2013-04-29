@@ -1,9 +1,0 @@
-// Set image sizes and background. It will use retina image, that has twice
-// size to be clean on Retina screens.
-//
-//   .button
-//      +retina-image("nice/button.png")
-@mixin retina-image($path)
-  +image-size($path, 2)
-  background: image-url($path) no-repeat
-  background-size: (image-width($path) / 2) (image-height($path) / 2)
