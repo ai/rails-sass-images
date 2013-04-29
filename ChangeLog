@@ -1,2 +1,5 @@
-== 0.1 (Leonardo da Vinci)
+== 0.2 (Raffaello Sanzio da Urbino)
+* Rename retina-image and retina-inline mixins to hidpi-image and hidpi-inline.
+
+== 0.1 (Leonardo di ser Piero da Vinci)
 * Initial release.
