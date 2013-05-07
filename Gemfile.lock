@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails-sass-images (0.2)
+    rails-sass-images (0.3)
       dimensions (> 0)
       mime-types (> 0)
       sass (> 0)
