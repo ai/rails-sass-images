@@ -13,6 +13,6 @@ module App
     config.assets.enabled = true
     config.assets.version = '1.0'
 
-    config.sass.style = :compressed
+    config.secret_key_base = 'foo'
   end
 end

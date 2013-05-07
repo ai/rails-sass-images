@@ -16,7 +16,7 @@ You should have received a copy of the GNU Lesser General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 =end
 
-require 'sass-rails'
+require 'sass'
 
 dir = Pathname(__FILE__).dirname.join('sass')
 Dir.glob(dir.join('*.rb').to_s) { |ext| require ext }

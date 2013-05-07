@@ -17,7 +17,8 @@ Gem::Specification.new do |s|
   s.email    = 'andrey@sitnik.ru'
   s.homepage = 'https://github.com/ai/rails-sass-images'
 
-  s.add_dependency 'sass-rails', ['> 0']
+  s.add_dependency 'sass',       ['> 0']
+  s.add_dependency 'sprockets',  ['> 0']
   s.add_dependency 'dimensions', ['> 0']
-  s.add_dependency 'rails',      ['>= 3.1']
+  s.add_dependency 'mime-types', ['> 0']
 end

@@ -47,6 +47,8 @@ see [Autoprefixer](https://github.com/ai/autoprefixer).
 
 ## Usage
 
+### Ruby on Rails
+
 Add gem to your Rails `Gemfile`:
 
 ```ruby
@@ -54,6 +56,23 @@ gem "rails-sass-images"
 ```
 
 and import mixins in your `application.sass`:
+
+```sass
+@import "rails-sass-images"
+```
+
+# Other
+
+You can use Rails Sass Images with plain Ruby application with Sprockets.
+Just install in to Sprockets environment:
+
+```ruby
+require 'rails-sass-images'
+
+RailsSassImages.install(sprockets_env)
+```
+
+and import mixins in your Sass files:
 
 ```sass
 @import "rails-sass-images"

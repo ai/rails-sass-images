@@ -16,35 +16,15 @@ You should have received a copy of the GNU Lesser General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 =end
 
-require 'pathname'
-
 module RailsSassImages
-  # Return asset by file `path` from Sass parser
-  def self.asset(path)
-    path  = path.value
-    asset = self.assets[path]
-    raise "Can't find asset #{path}" unless asset
-    asset
+  # Enable `lib/assets/`
+  class Engine < ::Rails::Engine
   end
 
-  # Set Sprockets environment and add Rails Sass Images styles paths
-  def self.install(sprockets)
-    sprockets.append_path(Pathname(__FILE__).dirname.join('assets/stylesheets'))
-    self.assets = sprockets
-  end
-
-  # Set Sprockets environment
-  def self.assets=(env = nil)
-    @assets = env
-  end
-
-  # Get Sprockets environment
-  def self.assets
-    @assets
+  # Rails integration
+  class Railtie < Rails::Railtie
+    initializer 'rails-sass-images' do
+      RailsSassImages.assets = Rails.application.assets
+    end
   end
 end
-
-dir = Pathname(__FILE__).dirname.join('rails-sass-images')
-require dir.join('version')
-require dir.join('sass')
-require dir.join('railtie') if defined?(Rails)
