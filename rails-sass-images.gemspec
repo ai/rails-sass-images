@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   s.author   = 'Andrey "A.I." Sitnik'
   s.email    = 'andrey@sitnik.ru'
   s.homepage = 'https://github.com/ai/rails-sass-images'
+  s.license  = 'MIT'
 
   s.add_dependency 'sass',       ['> 0']
   s.add_dependency 'sprockets',  ['> 0']
