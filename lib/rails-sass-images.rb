@@ -22,7 +22,16 @@ module RailsSassImages
 
   # Get Sprockets environment
   def self.assets
-    @assets
+    if @assets
+      @assets
+    elsif @assets_loader
+      @assets = @assets_loader.call()
+    end
+  end
+
+  # Set lazy loader for assets
+  def self.assets_loader=(loader)
+    @assets_loader = loader
   end
 end
 

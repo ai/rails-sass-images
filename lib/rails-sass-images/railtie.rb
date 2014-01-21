@@ -5,8 +5,6 @@ module RailsSassImages
 
   # Rails integration
   class Railtie < Rails::Railtie
-    initializer 'rails-sass-images' do
-      RailsSassImages.assets = Rails.application.assets
-    end
+    RailsSassImages.assets_loader = proc { Rails.application.assets }
   end
 end

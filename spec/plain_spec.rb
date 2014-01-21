@@ -3,7 +3,7 @@ require File.expand_path('../spec_helper', __FILE__)
 require 'sprockets'
 
 describe RailsSassImages do
-  before(:all) do
+  before do
     @original = RailsSassImages.assets
 
     @assets = Sprockets::Environment.new
@@ -20,8 +20,18 @@ describe RailsSassImages do
     RailsSassImages.install(@assets)
   end
 
-  after(:all) do
-    RailsSassImages.assets = @original
+  after do
+    RailsSassImages.assets        = @original
+    RailsSassImages.assets_loader = nil
+  end
+
+  it "should load assets lazy" do
+    RailsSassImages.assets = nil
+    another = Sprockets::Environment.new
+
+    RailsSassImages.assets_loader = proc { another }
+
+    RailsSassImages.assets.should == another
   end
 
   it "should inline assets" do
