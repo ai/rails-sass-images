@@ -25,7 +25,7 @@ describe RailsSassImages do
     RailsSassImages.assets_loader = nil
   end
 
-  it "should load assets lazy" do
+  it "loads assets lazy" do
     RailsSassImages.assets = nil
     another = Sprockets::Environment.new
 
@@ -34,31 +34,31 @@ describe RailsSassImages do
     RailsSassImages.assets.should == another
   end
 
-  it "should inline assets" do
+  it "inlines assets" do
     @assets['inline.css'].to_s.should == ".icon{background:#{INLINE}}\n"
   end
 
-  it "should raise error on unknown file" do
+  it "raises error on unknown file" do
     proc {
       @assets['wrong-inline.css']
     }.should raise_error(/Can't find asset no\.png/)
   end
 
-  it "should get image size" do
+  it "gets image size" do
     @assets['size.css'].to_s.should == ".icon{width:4px;height:6px}\n"
   end
 
-  it "should get image size by mixin" do
+  it "gets image size by mixin" do
     @assets['image-size.css'].to_s.should == ".icon{width:4px;height:6px}\n"
   end
 
-  it "should has hidpi-image mixin" do
+  it "has hidpi-image mixin" do
     @assets['hidpi-image.css'].to_s == ".icon{width:2px;height:3px;" +
       "background:url(/assets/monolith.png) no-repeat;" +
       "background-size:2px 3px}\n"
   end
 
-  it "should has hidpi-inline mixin" do
+  it "has hidpi-inline mixin" do
     @assets['hidpi-inline.css'].to_s.should == ".icon{width:2px;height:3px;" +
       "background:#{INLINE} no-repeat;" +
       "background-size:2px 3px}\n"
