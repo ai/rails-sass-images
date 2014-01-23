@@ -77,14 +77,23 @@ describe RailsSassImages do
       @assets['image-size.css'].to_s.should == ".icon{width:4px;height:6px}\n"
     end
 
+    it "has hidpi-background mixin" do
+      @assets['hidpi-background.css'].to_s.should == (".icon{" +
+        "background-image:url(/assets/monolith.png);" +
+        "background-size:2px 3px}\n")
+    end
+
     it "has hidpi-image mixin" do
-      @assets['hidpi-image.css'].to_s == ".icon{width:2px;height:3px;" +
-        "background:url(/assets/monolith.png) no-repeat;" +
-        "background-size:2px 3px}\n"
+      @assets['hidpi-image.css'].to_s.should == ".icon{" +
+        "width:2px;height:3px;" +
+        "background-image:url(/assets/monolith.png);" +
+        "background-size:2px 3px;" +
+        "background-repeat:no-repeat}\n"
     end
 
     it "has hidpi-inline mixin" do
-      @assets['hidpi-inline.css'].to_s.should == ".icon{width:2px;height:3px;" +
+      @assets['hidpi-inline.css'].to_s.should == ".icon{" +
+        "width:2px;height:3px;" +
         "background:#{INLINE} no-repeat;" +
         "background-size:2px 3px}\n"
     end
