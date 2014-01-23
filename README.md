@@ -61,7 +61,7 @@ and import mixins in your `application.sass`:
 @import "rails-sass-images"
 ```
 
-# Other
+### Sprockets
 
 You can use Rails Sass Images with plain Ruby application with Sprockets.
 Just install in to Sprockets environment:
@@ -77,3 +77,15 @@ and import mixins in your Sass files:
 ```sass
 @import "rails-sass-images"
 ```
+
+### Other
+
+You can use Rails Sass Images without Sprockets. Just set dir to load assets:
+
+```ruby
+require 'rails-sass-images'
+
+RailsSassImages.load_from = './images/'
+```
+
+By default, load dir will be current dir `.`.

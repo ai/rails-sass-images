@@ -12,8 +12,8 @@ module RailsSassImages::Sass
   def inline(path)
     asset = RailsSassImages.asset(path)
 
-    mime = MIME::Types.type_for(asset.pathname.to_s).first.content_type
-    file = asset.pathname.read
+    mime = MIME::Types.type_for(asset.to_s).first.content_type
+    file = asset.read
     file = [file].flatten.pack('m').gsub("\n", '')
 
     Sass::Script::String.new("url('data:#{mime};base64,#{file}')")

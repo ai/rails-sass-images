@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
   s.license  = 'MIT'
 
   s.add_dependency 'sass',       ['> 0']
-  s.add_dependency 'sprockets',  ['> 0']
   s.add_dependency 'dimensions', ['> 0']
   s.add_dependency 'mime-types', ['> 0']
 end
