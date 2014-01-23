@@ -1,3 +1,7 @@
+### 0.5 “Gentile Bellini”
+* Allow to use gem without Sprockets.
+* Add `hidpi-background` mixin for repeated backgrounds.
+
 ### 0.4 “Alessandro di Mariano di Vanni Filipepi”
 * Allow to work in Rails with disabled `initialize_on_precompile`.
 
