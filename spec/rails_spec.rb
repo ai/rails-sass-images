@@ -8,40 +8,40 @@ describe CssController, type: :controller do
 
   it "inlines assets" do
     get :test, file: 'inline'
-    response.should be_success
-    response.body.should == ".icon{background:#{INLINE}}\n"
+    expect(response).to be_success
+    expect(response.body).to eql ".icon{background:#{INLINE}}\n"
   end
 
   it "raises error on unknown file" do
-    proc {
+    expect {
       get :test, file: 'wrong-inline'
-    }.should raise_error(/Can't find asset no\.png/)
+    }.to raise_error(/Can't find asset no\.png/)
   end
 
   it "gets image size" do
     get :test, file: 'size'
-    response.should be_success
-    response.body.should == ".icon{width:4px;height:6px}\n"
+    expect(response).to be_success
+    expect(response.body).to eql ".icon{width:4px;height:6px}\n"
   end
 
   it "gets image size by mixin" do
     get :test, file: 'image-size'
-    response.should be_success
-    response.body.should == ".icon{width:4px;height:6px}\n"
+    expect(response).to be_success
+    expect(response.body).to eql ".icon{width:4px;height:6px}\n"
   end
 
   it "has hidpi-background mixin" do
     get :test, file: 'hidpi-background'
-    response.should be_success
-    response.body.should == ".icon{" +
+    expect(response).to be_success
+    expect(response.body).to eql ".icon{" +
       "background-image:url(/assets/monolith.png);" +
       "background-size:2px 3px}\n"
   end
 
   it "has hidpi-image mixin" do
     get :test, file: 'hidpi-image'
-    response.should be_success
-    response.body.should == ".icon{" +
+    expect(response).to be_success
+    expect(response.body).to eql ".icon{" +
       "width:2px;height:3px;" +
       "background-image:url(/assets/monolith.png);" +
       "background-size:2px 3px;" +
@@ -50,8 +50,8 @@ describe CssController, type: :controller do
 
   it "has hidpi-inline mixin" do
     get :test, file: 'hidpi-inline'
-    response.should be_success
-    response.body.should == ".icon{" +
+    expect(response).to be_success
+    expect(response.body).to eql ".icon{" +
       "width:2px;height:3px;" +
       "background:#{INLINE} no-repeat;" +
       "background-size:2px 3px}\n"

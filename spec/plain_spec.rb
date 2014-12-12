@@ -26,36 +26,36 @@ describe RailsSassImages do
 
     it "loads from dir" do
       RailsSassImages.load_from = DIR.join('app/app/assets/images')
-      @assets['size.css'].to_s.should == ".icon{width:4px;height:6px}\n"
+      expect(@assets['size.css']).to eql ".icon{width:4px;height:6px}\n"
     end
 
     it "loads by default from current dir" do
       RailsSassImages.load_from = '.'
-      @assets['relative.css'].to_s.should == ".icon{width:4px;height:6px}\n"
+      expect(@assets['relative.css']).to eql ".icon{width:4px;height:6px}\n"
     end
 
     it "loads assets from sprockets" do
       RailsSassImages.load_from = @assets
-      @assets['size.css'].to_s.should == ".icon{width:4px;height:6px}\n"
+      expect(@assets['size.css']).to eql ".icon{width:4px;height:6px}\n"
     end
 
     it "loads assets lazy" do
       RailsSassImages.load_from = proc { @assets }
-      @assets['size.css'].to_s.should == ".icon{width:4px;height:6px}\n"
+      expect(@assets['size.css']).to eql ".icon{width:4px;height:6px}\n"
     end
 
     it "raises error on unknown file in assets" do
       RailsSassImages.load_from = @assets
-      proc {
+      expect {
         @assets['wrong-inline.css']
-      }.should raise_error(/Can't find asset no\.png/)
+      }.to raise_error(/Can't find asset no\.png/)
     end
 
     it "raises error on unknown file in path" do
       RailsSassImages.load_from = '.'
-      proc {
+      expect {
         @assets['wrong-inline.css']
-      }.should raise_error(/Can't find asset no\.png in \./)
+      }.to raise_error(/Can't find asset no\.png in \./)
     end
 
   end
@@ -66,25 +66,25 @@ describe RailsSassImages do
     end
 
     it "inlines assets" do
-      @assets['inline.css'].to_s.should == ".icon{background:#{INLINE}}\n"
+      expect(@assets['inline.css']).to eql ".icon{background:#{INLINE}}\n"
     end
 
     it "gets image size" do
-      @assets['size.css'].to_s.should == ".icon{width:4px;height:6px}\n"
+      expect(@assets['size.css']).to eql ".icon{width:4px;height:6px}\n"
     end
 
     it "gets image size by mixin" do
-      @assets['image-size.css'].to_s.should == ".icon{width:4px;height:6px}\n"
+      expect(@assets['image-size.css']).to eql ".icon{width:4px;height:6px}\n"
     end
 
     it "has hidpi-background mixin" do
-      @assets['hidpi-background.css'].to_s.should == (".icon{" +
+      expect(@assets['hidpi-background.css']).to eql (".icon{" +
         "background-image:url(/assets/monolith.png);" +
         "background-size:2px 3px}\n")
     end
 
     it "has hidpi-image mixin" do
-      @assets['hidpi-image.css'].to_s.should == ".icon{" +
+      expect(@assets['hidpi-image.css']).to eql ".icon{" +
         "width:2px;height:3px;" +
         "background-image:url(/assets/monolith.png);" +
         "background-size:2px 3px;" +
@@ -92,7 +92,7 @@ describe RailsSassImages do
     end
 
     it "has hidpi-inline mixin" do
-      @assets['hidpi-inline.css'].to_s.should == ".icon{" +
+      expect(@assets['hidpi-inline.css']).to eql ".icon{" +
         "width:2px;height:3px;" +
         "background:#{INLINE} no-repeat;" +
         "background-size:2px 3px}\n"
