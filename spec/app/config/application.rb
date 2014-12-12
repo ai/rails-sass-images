@@ -9,10 +9,7 @@ end
 
 module App
   class Application < Rails::Application
-    config.encoding = "utf-8"
-    config.assets.enabled = true
-    config.assets.version = '1.0'
-
+    config.encoding = 'utf-8'
     config.secret_key_base = 'foo'
   end
 end

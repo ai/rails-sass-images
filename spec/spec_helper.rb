@@ -1,10 +1,10 @@
 ENV['RAILS_ENV'] ||= 'test'
 
-DIR = Pathname(__FILE__).dirname
-require DIR.join('app/config/environment').to_s
-require DIR.join('../lib/rails-sass-images').to_s
+require_relative 'app/config/environment'
+require_relative '../lib/rails-sass-images'
 
 require 'rspec/rails'
 
+DIR    = Pathname(__FILE__).dirname
 INLINE = 'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAGCAAAAADB' +
          'UmCpAAAAC0lEQVQI12NgwAcAAB4AAW6FRzIAAAAASUVORK5CYII=")'
