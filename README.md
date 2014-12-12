@@ -1,4 +1,4 @@
-# Rails Sass Images
+# Rails Sass Images [![Build Status](https://travis-ci.org/ai/rails-sass-images.svg)](https://travis-ci.org/ai/rails-sass-images)
 
 Sass functions and mixins to inline images and get images size:
 
@@ -30,7 +30,9 @@ and fonts support:
   src: inline("my.woff") format('woff')
 ```
 
-Sponsored by [Evil Martians](http://evilmartians.com/).
+<a href="https://evilmartians.com/?utm_source=rails-sass-images">
+<img src="https://evilmartians.com/badges/sponsored-by-evil-martians.svg" alt="Sponsored by Evil Martians" width="236" height="54">
+</a>
 
 ## Features
 
