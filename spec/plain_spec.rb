@@ -73,6 +73,7 @@ describe RailsSassImages do
 
     it "inlines assets" do
       expect(@assets['inline.css'].to_s).to eq ".icon{background:#{INLINE}}\n"
+      expect(@assets['inline-svg.css'].to_s).to eq ".icon{background:#{INLINE_SVG}}\n"
     end
 
     it "gets image size" do
