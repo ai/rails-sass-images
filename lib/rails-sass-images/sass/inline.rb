@@ -1,3 +1,4 @@
+require 'cgi'
 require 'mime-types'
 
 module RailsSassImages::Sass
@@ -14,8 +15,15 @@ module RailsSassImages::Sass
 
     mime = MIME::Types.type_for(asset.to_s).first.content_type
     file = asset.read
-    file = [file].flatten.pack('m').gsub("\n", '')
 
-    Sass::Script::String.new("url('data:#{mime};base64,#{file}')")
+    if mime == 'image/svg+xml'
+      file     = CGI::escape(file).gsub('+', '%20')
+      encoding = 'charset=utf-8'
+    else
+      file     = [file].flatten.pack('m').gsub("\n", '')
+      encoding = 'base64'
+    end
+
+    Sass::Script::String.new("url('data:#{mime};#{encoding},#{file}')")
   end
 end
