@@ -1,3 +1,7 @@
+### 1.0 “Correggio”
+* Better encoding for SVG (by Alexey Plutalov).
+* Remove official Ruby 1.9 support.
+
 ### 0.5 “Gentile Bellini”
 * Allow to use gem without Sprockets.
 * Add `hidpi-background` mixin for repeated backgrounds.
