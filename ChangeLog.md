@@ -1,3 +1,6 @@
+## 1.0.2
+* Fix file path in error message.
+
 ### 1.0.1
 * Better error message for unknown MIME-type.
 
