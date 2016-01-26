@@ -1,3 +1,7 @@
+## 1.0.3
+* Fix Sprockets 3 support.
+* Better error message for wrong `load_from`.
+
 ## 1.0.2
 * Fix file path in error message.
 
