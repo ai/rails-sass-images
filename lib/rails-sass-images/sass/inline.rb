@@ -13,7 +13,10 @@ module RailsSassImages::Sass
   def inline(path)
     asset = RailsSassImages.asset(path)
 
-    mime = MIME::Types.type_for(asset.to_s).first.content_type
+    mimes = MIME::Types.type_for(asset.to_s)
+    raise "Unknown MIME-type for #{ assets.to_s }" unless mimes.first
+
+    mime = mimes.first.content_type
     file = asset.read
 
     if mime == 'image/svg+xml'
