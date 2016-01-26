@@ -14,6 +14,8 @@ module RailsSassImages
       asset = @load_from[path]
       raise "Can't find asset #{path}" unless asset
       asset = asset.pathname
+    else
+      raise "Unknown type of RailsSassImages.load_from"
     end
 
     asset
