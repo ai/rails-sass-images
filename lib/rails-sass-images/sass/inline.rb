@@ -14,7 +14,7 @@ module RailsSassImages::Sass
     asset = RailsSassImages.asset(path)
 
     mimes = MIME::Types.type_for(asset.to_s)
-    raise "Unknown MIME-type for #{ assets.to_s }" unless mimes.first
+    raise "Unknown MIME-type for #{ asset.to_s }" unless mimes.first
 
     mime = mimes.first.content_type
     file = asset.read
