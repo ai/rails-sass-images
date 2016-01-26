@@ -33,19 +33,19 @@ describe CssController, type: :controller do
   it "has hidpi-background mixin" do
     get :test, file: 'hidpi-background'
     expect(response).to be_success
-    expect(response.body).to eq ".icon{" +
-      "background-image:url(/assets/monolith.png);" +
-      "background-size:2px 3px}\n"
+    expect(response.body).to include ".icon{" +
+      "background-image:url(/assets/monolith"
+    expect(response.body).to include "background-size:2px 3px}"
   end
 
   it "has hidpi-image mixin" do
     get :test, file: 'hidpi-image'
     expect(response).to be_success
-    expect(response.body).to eq ".icon{" +
+    expect(response.body).to include ".icon{" +
       "width:2px;height:3px;" +
-      "background-image:url(/assets/monolith.png);" +
-      "background-size:2px 3px;" +
-      "background-repeat:no-repeat}\n"
+      "background-image:url(/assets/monolith"
+    expect(response.body).to include "background-size:2px 3px;" +
+        "background-repeat:no-repeat"
   end
 
   it "has hidpi-inline mixin" do
