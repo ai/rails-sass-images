@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.homepage = 'https://github.com/ai/rails-sass-images'
   s.license  = 'MIT'
 
-  s.add_dependency 'sass',       ['> 0']
+  s.add_dependency 'sassc',      ['> 0']
   s.add_dependency 'dimensions', ['> 0']
   s.add_dependency 'mime-types', ['> 0']
 end

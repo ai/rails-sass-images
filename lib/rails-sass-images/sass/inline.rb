@@ -27,6 +27,6 @@ module RailsSassImages::Sass
       encoding = 'base64'
     end
 
-    Sass::Script::String.new("url('data:#{mime};#{encoding},#{file}')")
+    SassC::Script::Value::String.new("url('data:#{mime};#{encoding},#{file}')")
   end
 end

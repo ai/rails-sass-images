@@ -13,7 +13,7 @@ module RailsSassImages
     elsif sprockets? @load_from
       asset = @load_from[path]
       raise "Can't find asset #{path}" unless asset
-      asset = asset.pathname
+      asset = Pathname.new(asset.filename)
     else
       raise "Unknown type of RailsSassImages.load_from"
     end
@@ -43,7 +43,7 @@ private
   # Safe detect is `var` is a Sprockets environment
   def self.sprockets?(var)
     return false unless defined? Sprockets
-    var.is_a? Sprockets::Environment or var.is_a? Sprockets::Index
+    var.is_a? Sprockets::Environment or var.is_a? Sprockets::CachedEnvironment
   end
 end
 
