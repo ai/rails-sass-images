@@ -1,3 +1,7 @@
+## 2.0.0
+* Add sprockets 4 support ([#9](https://github.com/ai/rails-sass-images/pull/9))
+* Drop sprockets 3 support ([#9](https://github.com/ai/rails-sass-images/pull/9))
+
 ## 1.0.3
 * Fix Sprockets 3 support.
 * Better error message for wrong `load_from`.
